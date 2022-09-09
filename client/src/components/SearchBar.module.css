@@ -1,0 +1,36 @@
+.searchBar {
+    width: 25%;
+    padding: 12px 24px;
+
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    
+    color: #39dbc2;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #f41fbf;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.searchBar:hover,
+        .searchBar:focus {
+            padding: 12px 0;
+            outline: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #39dbc2;
+            border-radius: 0;
+            background-position: 100% center;
+        }
+.div {
+    margin: auto;
+    padding: 2rem 2rem;
+}

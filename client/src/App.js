@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Food</h1>
+      <Switch>
+        <Route exact path="/" render={() => <Landing />} />
+        <Route exact path="/recipes" render={() => <Home />} />
+        <Route exact path="/recipes/:id" render={() => <RecipeDetails />} />
+      </Switch>
     </div>
   );
 }

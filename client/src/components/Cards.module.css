@@ -1,0 +1,16 @@
+.container {
+    padding: 10%;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0%;
+    margin: auto;
+}
+
+
+.load {
+    font-size: 100px;
+    color:white;
+}

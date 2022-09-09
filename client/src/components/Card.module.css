@@ -1,0 +1,22 @@
+.li {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -2px 3px 8px 0px rgba(0, 0, 0, 0.17);
+    width: auto;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem;
+    list-style: none;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: auto;
+}
+
+.img {
+    margin:1rem;
+    padding: auto;
+    margin: 1rem;
+    width: 20rem;
+    height: auto;
+
+}
