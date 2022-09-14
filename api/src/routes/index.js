@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const {
-  getAllDietsController,
+  getAllRecipesController,
   searchRecipeController,
   getRecipeController,
   postDietsController,
@@ -15,10 +15,10 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get("/recipes", getAllDietsController, searchRecipeController);
+router.get("/recipes", getAllRecipesController, searchRecipeController);
+router.post("/diets", postDietsController);
 router.get("/recipes/:id", getRecipeController);
 router.post("/recipes", postRecipeController);
 router.get("/diets", getDietsController);
-router.post("/diets", postDietsController);
 
 module.exports = router;
