@@ -28,8 +28,8 @@ module.exports = (sequelize) => {
         },
       },
       instructions: {
-        type: DataTypes.TEXT,
-        defaultValue: "En construccion",
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+        defaultValue: [],
       },
     },
     {

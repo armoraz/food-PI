@@ -16,7 +16,9 @@ const getRecipeController = async function (req, res) {
       img: response.data.image,
       summary: response.data.summary,
       diets: response.data.diets,
-      instructions: response.data.analyzedInstructions,
+      instructions: response.data.analyzedInstructions.length
+        ? response.data.analyzedInstructions[0].steps
+        : "No instructions available",
     });
   } catch (e) {
     res.send("error at getting recipe", e.message);
