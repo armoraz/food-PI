@@ -31,7 +31,7 @@ export default function SearchBar() {
           value={input}
           type="text"
           name="name"
-          placeholder="Recipe..."
+          placeholder="Recipes..."
         />
       </form>
     </div>

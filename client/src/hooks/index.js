@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import { errorHandler, loadingHandler } from "../actions";
 
@@ -13,25 +13,29 @@ export const useHTTP = function (requestConfig, action) {
         //Request
         const res = await fetch(requestConfig.url, {
           mode: "cors",
-          method: requestConfig.method ? requestConfig.method : "GET",
-          headers: requestConfig.headers ? requestConfig.headers : {},
-          body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
         });
         const data = await res.json();
         dispatch(action(data));
       } catch (e) {
         dispatch(errorHandler(e.message));
       }
+
+      dispatch(loadingHandler(false));
     },
-    [
-      dispatch,
-      requestConfig.url,
-      requestConfig.method,
-      requestConfig.headers,
-      requestConfig.body,
-      action,
-    ]
+    [action, requestConfig.url, dispatch]
   );
 
   return getData;
+};
+
+export const useSortFilterVerification = function () {
+  const { filter } = useSelector((state) => state.ui);
+  const { recipes } = useSelector((state) => state.food);
+
+  const ListOfRecipes = [...recipes];
+  if (filter.status) {
+    ListOfRecipes.splice(0, ListOfRecipes.length, ...filter.filtered);
+  }
+
+  return ListOfRecipes;
 };

@@ -26,7 +26,7 @@ const postDietsController = async function (req, res, next) {
 
     res.json(await Diet.bulkCreate(allDiets));
   } catch (e) {
-    res.send("error at bulk posting diets", e.message);
+    res.json("error at bulk posting diets: " + e.message);
   }
 };
 

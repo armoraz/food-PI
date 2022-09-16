@@ -7,7 +7,7 @@ const getAllRecipesController = async function (req, res, next) {
       const recipes = await Recipe.findAll();
       res.json(recipes.length ? recipes : "No recipes found");
     } catch (e) {
-      res.send("error at getting all recipes", e.message);
+      res.json("error at getting all recipes: " + e.message);
     }
   }
 };

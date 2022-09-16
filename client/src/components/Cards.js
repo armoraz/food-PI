@@ -1,18 +1,18 @@
+import React from "react";
 import Card from "./Card";
 import styles from "./Cards.module.css";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Pagination from "./Pagination";
+import { useSortFilterVerification } from "../hooks";
 
-export default function Cards() {
-  const { isLoading, errorOnLoad, recipes } = useSelector(
-    (state) => state.recipes
-  );
+function Cards() {
+  const { isLoading, errorOnLoad } = useSelector((state) => state.ui);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
-  const ListOfRecipes = [...recipes];
+  const ListOfRecipes = useSortFilterVerification();
 
   // Get current posts
   const indexOfLastRecipe = currentPage * recipesPerPage;
@@ -52,8 +52,10 @@ export default function Cards() {
           />
         </div>
       )}
-      {isLoading && <p className={styles.load}>...Loading</p>}
+      {isLoading && <p>...Loading</p>}
       {!isLoading && errorOnLoad && <p>{errorOnLoad}</p>}
     </div>
   );
 }
+
+export default Cards;

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const { Recipe } = require("../db");
+const { Recipe, Diet } = require("../db");
 const { Op } = require("sequelize");
 
 const searchRecipeController = async function (req, res) {
@@ -15,25 +15,37 @@ const searchRecipeController = async function (req, res) {
     const searchedRecipesAPI = [];
     response.data.results.map((e) => {
       searchedRecipesAPI.push({
+        id: e.id,
         name: e.title,
         img: e.image,
-        summary: e.summary,
         diets: e.diets,
-        instructions: e.analyzedInstructions,
       });
     });
     //Busqueda en la DB
-    const searchedRecipesDB = await Recipe.findAll({
+    const recipesDB = await Recipe.findAll({
       where: {
         name: {
           [Op.iLike]: `%${name}`,
         },
       },
+      include: Diet,
     });
-    const searchedRecipes = [...searchedRecipesAPI, ...searchedRecipesDB];
+
+    const searchedRecipesDB = recipesDB.map((r) => {
+      return {
+        id: r.id,
+        name: r.name,
+        img: r.img ? r.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
+        diets: r.diets.map((element) => {
+          return element.name;
+        }),
+      };
+    });
+
+    const searchedRecipes = [...searchedRecipesDB, ...searchedRecipesAPI];
     res.json(searchedRecipes);
   } catch (e) {
-    res.send("error at searching recipes", e.message);
+    res.json("error at searching recipes: " + e.message);
   }
 };
 

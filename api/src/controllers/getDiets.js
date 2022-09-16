@@ -2,10 +2,20 @@ const { Diet } = require("../db");
 
 const getDietsController = async function (req, res) {
   try {
-    const diets = await Diet.findAll();
-    res.json(diets.length ? diets : "No diets found");
+    const dietsDB = await Diet.findAll();
+    if (dietsDB.length < 1) {
+      res.json("No diets found");
+    }
+    //formating
+    else {
+      const diets = [];
+      dietsDB.forEach((element) => {
+        diets.push(element.name);
+      });
+      res.json(diets);
+    }
   } catch (e) {
-    res.send("error at get diets", e.message);
+    res.json("error at get diets: " + e.message);
   }
 };
 

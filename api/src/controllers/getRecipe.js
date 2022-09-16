@@ -21,7 +21,7 @@ const getRecipeController = async function (req, res) {
         : "No instructions available",
     });
   } catch (e) {
-    res.send("error at getting recipe", e.message);
+    res.json("error at getting recipe: " + e.message);
   }
 };
 
