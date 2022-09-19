@@ -15,6 +15,7 @@ const getRecipeController = async function (req, res) {
       name: response.data.title,
       img: response.data.image,
       summary: response.data.summary,
+      healthScore: response.data.healthScore,
       diets: response.data.diets,
       instructions: response.data.analyzedInstructions.length
         ? response.data.analyzedInstructions[0].steps

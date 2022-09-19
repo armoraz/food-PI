@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import Cards from "../components/Cards";
 import Filter from "../components/Filter";
+import Sort from "../components/Sort";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
       <SearchBar />
       <Filter />
+      <Sort />
       <Cards />
     </div>
   );

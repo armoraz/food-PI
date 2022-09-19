@@ -18,6 +18,7 @@ const searchRecipeController = async function (req, res) {
         id: e.id,
         name: e.title,
         img: e.image,
+        healthScore: e.healthScore,
         diets: e.diets,
       });
     });
@@ -36,6 +37,7 @@ const searchRecipeController = async function (req, res) {
         id: r.id,
         name: r.name,
         img: r.img ? r.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
+        healthScore: r.healthScore,
         diets: r.diets.map((element) => {
           return element.name;
         }),

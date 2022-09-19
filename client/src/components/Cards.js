@@ -34,15 +34,7 @@ function Cards() {
         <div>
           <ul className={styles.list}>
             {currentRecipes.map((e, index) => {
-              return (
-                <Card
-                  id={e.id}
-                  img={e.img}
-                  diets={e.diets}
-                  name={e.name}
-                  key={index}
-                />
-              );
+              return <Card item={e} key={index} />;
             })}
           </ul>
           <Pagination
