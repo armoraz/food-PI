@@ -10,8 +10,16 @@ const postDietsController = async function (req, res, next) {
     );
 
     const aux = [];
+    const recipes = [];
     //Iteracion para conseguir las dietas posibles
     response.data.results.forEach((e) => {
+      recipes.push({
+        id: e.id,
+        name: e.title,
+        img: e.image,
+        healthScore: e.healthScore,
+        diets: e.diets,
+      });
       e.diets.forEach((element) => {
         if (!aux.includes(element)) {
           aux.push(element);
@@ -24,7 +32,9 @@ const postDietsController = async function (req, res, next) {
       return { name: e };
     });
 
-    res.json(await Diet.bulkCreate(allDiets));
+    await Diet.bulkCreate(allDiets);
+
+    res.json(recipes);
   } catch (e) {
     res.json("error at bulk posting diets: " + e.message);
   }

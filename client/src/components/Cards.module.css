@@ -10,7 +10,8 @@
 }
 
 
-p {
-    font-size: 1000px;
+p { 
+    text-align: center;
+    font-size: 100px;
     color: black;
 }

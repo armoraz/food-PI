@@ -12,6 +12,8 @@ export default function SearchBar() {
     searchRecipes
   );
 
+  //useLocation && useEffect
+
   function searchHandler(e) {
     e.preventDefault();
     if (input !== "") {
