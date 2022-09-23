@@ -6,12 +6,12 @@ const { Op } = require("sequelize");
 
 const getRecipeController = async function (req, res, next) {
   const id = req.params.id;
-  console.log(typeof id);
+  const recipe = [];
 
   try {
     if (id.includes("-")) {
       //Busqueda en DB
-      const recipe = await Recipe.findOne({
+      const rDB = await Recipe.findOne({
         where: {
           id: {
             [Op.eq]: id,
@@ -19,6 +19,20 @@ const getRecipeController = async function (req, res, next) {
         },
         include: Diet,
       });
+
+      //Formateando
+      const recipeDB = {
+        id: rDB.id,
+        name: rDB.name,
+        img: rDB.img ? rDB.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
+        summary: rDB.summary,
+        healthScore: rDB.healthScore,
+        diets: rDB.diets.map((element) => {
+          return element.name;
+        }),
+      };
+
+      recipe.push(recipeDB);
     } else {
       //Busqueda en API
       const response = await axios.get(
@@ -28,21 +42,22 @@ const getRecipeController = async function (req, res, next) {
       if (response.data.code === 404)
         throw new Error(`Recipe id: ${id} does not exist`);
 
-      const recipe = {
+      const recipeAPI = {
         id: response.data.id,
         name: response.data.title,
         img: response.data.image,
-        summary: response.data.summary,
+        summary: response.data.summary.replace(/(<([^>]+)>)/gi, ""),
         healthScore: response.data.healthScore,
         diets: response.data.diets,
         instructions: response.data.analyzedInstructions.length
           ? response.data.analyzedInstructions[0].steps
           : ["No instructions available"],
       };
+
+      recipe.push(recipeAPI);
     }
-    res.json(recipe);
+    res.json(...recipe);
   } catch (e) {
-    e.status = 404;
     next(e);
   }
 };

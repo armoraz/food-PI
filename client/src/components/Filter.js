@@ -3,13 +3,24 @@ import { setFilteredRecipes } from "../actions/index";
 
 function Filter() {
   const { recipes, diets } = useSelector((state) => state.food);
-  const { filter } = useSelector((state) => state.ui);
+  const { filter, sort } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
 
   function filterByDietHandler(e) {
     let selected = e.target.value;
+    const recipesToFilter = [...recipes];
 
-    const filteredRecipes = recipes.filter((e) => {
+    //Si hay algun ordenamiento activo
+    if (sort.byName.status) {
+      recipesToFilter.push(...sort.byName.sorted);
+    }
+
+    if (sort.byScore.status) {
+      recipesToFilter.push(...sort.byScore.sorted);
+    }
+
+    //Aplica filtrado
+    const filteredRecipes = recipesToFilter.filter((e) => {
       return e.diets.includes(selected);
     });
 

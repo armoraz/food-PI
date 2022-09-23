@@ -106,6 +106,7 @@ const initialState = {
       diets: ["gluten free", "ketogenic"],
     },
   ],
+  recipe: { diets: [] },
   diets: [
     "gluten free",
     "dairy free",
@@ -122,6 +123,8 @@ const initialState = {
 
 export default function recipeReducer(state = initialState, action) {
   switch (action.type) {
+    case "GET_RECIPE":
+      return { ...state, recipe: action.payload };
     case "SEARCH_RECIPES":
       return { ...state, recipes: [...action.payload] };
     case "SET_DIETS":

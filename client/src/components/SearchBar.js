@@ -1,24 +1,25 @@
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { searchRecipes } from "../actions";
 import { useHTTP } from "../hooks";
 import style from "./SearchBar.module.css";
 
 export default function SearchBar() {
+  const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");
   const getData = useHTTP(
-    { url: `http://localhost:3001/recipes?name=${input}` },
+    { url: `http://localhost:3001/recipes${location.search}` },
     searchRecipes
   );
 
   //useLocation && useEffect
+  useEffect(() => getData(), [location, getData]);
 
   function searchHandler(e) {
     e.preventDefault();
     if (input !== "") {
       history.push(`/recipes?name=${input}`);
-      getData();
       setInput("");
     }
     return null;

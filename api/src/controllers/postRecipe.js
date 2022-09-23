@@ -33,14 +33,6 @@ const postRecipeController = async function (req, res, next) {
       await newRecipe.addDiet(dietRow, { through: RecipeDiet });
     });
 
-    //
-    const addedRecipe = await Recipe.findAll({
-      where: {
-        id: newRecipe.id,
-      },
-      include: Diet,
-    });
-
     res.json({ message: "Receta creada" });
   } catch (e) {
     //Error info recibida
