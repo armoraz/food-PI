@@ -11,3 +11,9 @@ export const sortByScore = function (data, selected) {
     payload: { data, selected },
   };
 };
+
+export const sortReset = function () {
+  return {
+    type: "SORT_RESET",
+  };
+};

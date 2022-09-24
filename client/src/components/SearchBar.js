@@ -14,7 +14,7 @@ export default function SearchBar() {
   );
 
   //useLocation && useEffect
-  useEffect(() => getData(), [location, getData]);
+  useEffect(() => getData(), [location.search, getData]);
 
   function searchHandler(e) {
     e.preventDefault();

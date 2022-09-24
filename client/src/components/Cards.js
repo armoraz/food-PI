@@ -12,6 +12,7 @@ function Cards() {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
+  //Verifica si hay filtrado u ordenamiento
   const ListOfRecipes = useSortFilterVerification();
 
   // Get current posts

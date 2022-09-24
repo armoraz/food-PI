@@ -10,16 +10,15 @@ const initialState = {
   sort: {
     byName: {
       status: false,
-      selected: "ordenar por nombre",
       default: "ordenar por nombre",
       sorted: [],
     },
     byScore: {
       status: false,
-      selected: "ordenar por score",
       default: "ordenar por score",
       sorted: [],
     },
+    selected: "ordenar por nombre",
   },
 };
 
@@ -40,7 +39,7 @@ export default function uiReducer(state = initialState, action) {
         filter: {
           ...state.filter,
           status: true,
-          filtered: [...action.payload.data],
+          filtered: action.payload.data,
           selected: action.payload.selected,
         },
       };
@@ -53,7 +52,6 @@ export default function uiReducer(state = initialState, action) {
             //Reinicio del ordenamiento byScore
             ...state.sort.byScore,
             status: false,
-            selected: "ordenar por score",
             sorted: [],
           },
           byName: {
@@ -61,8 +59,8 @@ export default function uiReducer(state = initialState, action) {
             ...state.sort.byName,
             status: true,
             sorted: [...action.payload.data],
-            selected: action.payload.selected,
           },
+          selected: action.payload.selected,
         },
       };
     case "SORT_BY_SCORE":
@@ -74,7 +72,6 @@ export default function uiReducer(state = initialState, action) {
             //Reinicio del ordenamiento byName
             ...state.sort.byName,
             status: false,
-            selected: "ordenar por nombre",
             sorted: [],
           },
           byScore: {
@@ -82,8 +79,25 @@ export default function uiReducer(state = initialState, action) {
             ...state.sort.byScore,
             status: true,
             sorted: [...action.payload.data],
-            selected: action.payload.selected,
           },
+          selected: action.payload.selected,
+        },
+      };
+    case "SORT_RESET":
+      return {
+        ...state,
+        sort: {
+          byName: {
+            ...state.sort.byName,
+            status: false,
+            sorted: [],
+          },
+          byScore: {
+            ...state.sort.byScore,
+            status: false,
+            sorted: [],
+          },
+          selected: "ordenar por nombre",
         },
       };
     default:

@@ -6,16 +6,14 @@ export default function useSortFilterVerification() {
 
   const ListOfRecipes = [...recipes];
 
+  if (filter.status) {
+    ListOfRecipes.splice(0, ListOfRecipes.length, ...filter.filtered);
+  }
   if (sort.byName.status) {
     ListOfRecipes.splice(0, ListOfRecipes.length, ...sort.byName.sorted);
   }
-
   if (sort.byScore.status) {
     ListOfRecipes.splice(0, ListOfRecipes.length, ...sort.byScore.sorted);
-  }
-
-  if (filter.status) {
-    ListOfRecipes.splice(0, ListOfRecipes.length, ...filter.filtered);
   }
 
   return ListOfRecipes;

@@ -5,7 +5,7 @@ import errorHandler from "./ui/errorHandler";
 import loadingHandler from "./ui/loadingHandler";
 import setFilteredRecipes from "./ui/setFilteredRecipes";
 import setModal from "./ui/setModal";
-import { sortByName, sortByScore } from "./ui/sort";
+import { sortByName, sortByScore, sortReset } from "./ui/sort";
 
 export {
   searchRecipes,
@@ -17,4 +17,5 @@ export {
   setModal,
   sortByName,
   sortByScore,
+  sortReset,
 };

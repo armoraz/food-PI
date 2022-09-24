@@ -4,7 +4,6 @@ export default function setFilteredRecipes(data, selected) {
     payload: {
       data,
       selected,
-      status: true,
     },
   };
 }
