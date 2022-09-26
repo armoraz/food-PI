@@ -1,0 +1,12 @@
+.pagination {
+    position: sticky;
+    top: 0px
+}
+
+.actualPage {
+    background-color: red;
+}
+
+.nonActualPage {
+    background-color: blue;
+}

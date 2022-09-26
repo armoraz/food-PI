@@ -51,11 +51,19 @@ const getRecipesController = async function (req, res, next) {
         });
 
         //formateando la data de dietas
-        const allDiets = aux.map((e) => {
-          return { name: e };
+        // const allDiets = aux.map((e) => {
+        //   return { name: e };
+        // });
+
+        aux.forEach(async (element) => {
+          await Diet.findOrCreate({
+            where: { name: element },
+            default: {},
+          });
         });
-        //Enviando las dietas a DB
-        await Diet.bulkCreate(allDiets);
+
+        //   //Enviando las dietas a DB
+        //   await Diet.bulkCreate(allDiets);
       } catch (e) {
         recipesAPI.push({ diets: [`ERROR_API: ${e.message}`] });
       }

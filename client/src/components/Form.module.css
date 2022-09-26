@@ -1,0 +1,76 @@
+.listDiets {
+  background-color: rgb(224, 217, 217);
+  height: 5%;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.itemListDiets {
+padding: 1%;
+  width: max-content;
+  border-radius: 16px;
+  background-color: aquamarine;
+  margin: 1% 1%;
+  font-size: small;
+  display: inline-block;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+label {
+    padding: auto;
+    margin: 1%;
+}
+
+input {
+    padding: auto;
+    margin-top: auto;
+}
+
+select {
+  padding: auto;
+  margin-top: 1%;
+}
+
+.add {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: none;
+    color: #fff;
+    background: #f41fbf;
+    transition: all 0.25s ease;
+  }
+
+  .actionsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  p {
+    font-weight: bold;
+    color:#f41fbf
+  }
+
+  .inputInvalid input {
+    border: 1px solid #f41fbf;
+    background-color: #fddddd;
+  }

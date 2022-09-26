@@ -1,4 +1,5 @@
 import searchRecipes from "./food/searchRecipes";
+import getRecipes from "./food/getRecipes";
 import setDiets from "./food/setDiets";
 import getRecipe from "./food/getRecipe";
 import errorHandler from "./ui/errorHandler";
@@ -9,6 +10,7 @@ import { sortByName, sortByScore, sortReset } from "./ui/sort";
 
 export {
   searchRecipes,
+  getRecipes,
   setDiets,
   getRecipe,
   errorHandler,

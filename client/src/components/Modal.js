@@ -3,34 +3,31 @@ import styles from "./Modal.module.css";
 import { setModal } from "../actions";
 import Form from "./Form";
 
-export default function Modal() {
+export default function Modal({ title, content, darkBG }) {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <div
-        className={styles.darkBG}
-        onClick={() => dispatch(setModal("close"))}
-      />{" "}
+    <div>
+      {darkBG && (
+        <div
+          className={styles.darkBG}
+          onClick={() => dispatch(setModal("CLOSE"))}
+        />
+      )}
       <div className={styles.centered}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
-            <h5 className={styles.heading}>AGREGANDO RECETA</h5>{" "}
-          </div>{" "}
+            <h5 className={styles.heading}>{title}</h5>
+          </div>
           <button
             className={styles.closeBtn}
-            onClick={() => dispatch(setModal("close"))}
+            onClick={() => dispatch(setModal("CLOSE"))}
           >
             X
-          </button>{" "}
-          <div className={styles.modalContent}>
-            <Form />
-          </div>{" "}
-          <div className={styles.modalActions}>
-            <div className={styles.actionsContainer}></div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
-    </>
+          </button>
+          {content && <div className={styles.modalContent}>{content}</div>}
+        </div>
+      </div>
+    </div>
   );
 }

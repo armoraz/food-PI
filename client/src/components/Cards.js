@@ -30,7 +30,14 @@ function Cards() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
+      <Pagination
+        className={styles.pagination}
+        itemsPerPage={recipesPerPage}
+        paginate={paginate}
+        totalItems={ListOfRecipes.length}
+        currentPage={currentPage}
+      />
       {!isLoading && (
         <div>
           <ul className={styles.list}>
@@ -38,13 +45,9 @@ function Cards() {
               return <Card item={e} key={index} />;
             })}
           </ul>
-          <Pagination
-            itemsPerPage={recipesPerPage}
-            paginate={paginate}
-            totalItems={ListOfRecipes.length}
-          />
         </div>
       )}
+
       {isLoading && <p>...Loading</p>}
       {!isLoading && errorOnLoad && <p>{errorOnLoad}</p>}
     </div>

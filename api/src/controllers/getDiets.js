@@ -4,7 +4,7 @@ const getDietsController = async function (req, res) {
   try {
     const dietsDB = await Diet.findAll();
     if (dietsDB.length < 1) {
-      res.json("No diets found");
+      res.json(["No diets found"]);
     }
     //formating
     else {

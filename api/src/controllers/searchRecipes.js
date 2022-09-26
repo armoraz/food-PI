@@ -11,23 +11,23 @@ const searchRecipeController = async function (req, res) {
     //Busqueda en la API
     const searchedRecipesAPI = [];
     //Por si la API esta caida
-    try {
-      const response = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
-      );
+    // try {
+    //   const response = await axios.get(
+    //     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
+    //   );
 
-      response.data.results.map((e) => {
-        searchedRecipesAPI.push({
-          id: e.id,
-          name: e.title,
-          img: e.image,
-          healthScore: e.healthScore,
-          diets: e.diets,
-        });
-      });
-    } catch (e) {
-      searchedRecipesAPI.push({ ERROR_API: e.message });
-    }
+    //   response.data.results.map((e) => {
+    //     searchedRecipesAPI.push({
+    //       id: e.id,
+    //       name: e.title,
+    //       img: e.image,
+    //       healthScore: e.healthScore,
+    //       diets: e.diets,
+    //     });
+    //   });
+    // } catch (e) {
+    //   searchedRecipesAPI.push({ ERROR_API: e.message });
+    // }
     //Busqueda en la DB
     const recipesDB = await Recipe.findAll({
       where: {
