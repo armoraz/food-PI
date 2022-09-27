@@ -24,7 +24,9 @@ const getRecipeController = async function (req, res, next) {
       const recipeDB = {
         id: rDB.id,
         name: rDB.name,
-        img: rDB.img ? rDB.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
+        img: rDB.img
+          ? rDB.img
+          : "https://images.unsplash.com/photo-1605879015725-7e09cd0abc87",
         summary: rDB.summary,
         healthScore: rDB.healthScore,
         instructions: rDB.instructions,

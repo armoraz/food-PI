@@ -19,7 +19,7 @@ export default function NavBar(props) {
         <Link className={styles.link} to="/">
           Back to Book Cover
         </Link>
-        <h1 className={styles.title}>My Recipes</h1>
+        <h1 className={styles.title}>--- My Recipes ---</h1>
       </div>
       <SearchBar />
       <button

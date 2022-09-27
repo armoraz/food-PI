@@ -35,7 +35,7 @@ const Pagination = ({ props }) => {
       <ul>
         <span>
           <button className={nonActualPage} onClick={prevButtonHandler}>
-            ANTERIOR
+            {"<"}
           </button>
         </span>
         {pageNumbers.map((number) => (
@@ -53,7 +53,7 @@ const Pagination = ({ props }) => {
         ))}
         <span>
           <button className={nonActualPage} onClick={nextButtonHandler}>
-            SIGUIENTE
+            {">"}
           </button>
         </span>
       </ul>

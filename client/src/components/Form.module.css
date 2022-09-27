@@ -1,5 +1,6 @@
 .listDiets {
-  background-color: rgb(224, 217, 217);
+  background-color: #e8e8e8;
+  ;
   height: 5%;
   padding: 1%;
   display: flex;
@@ -42,21 +43,19 @@ input {
 }
 
 select {
-  padding: 5px 1em 5px 1em;;
+  padding: 5px 1em 5px 1em;
   margin-top: 1%;
+
 }
 
 .add {
-    margin-top: 10px;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 11px 28px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    border: none;
-    color: #fff;
-    background: #f41fbf;
-    transition: all 0.25s ease;
+  color: #ffffff;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #f41fbf;
+  border: 1px solid #e8e8e8;
+  transition: all .3s;
   }
 
   .actionsContainer {
