@@ -2,14 +2,13 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: -2px 3px 8px 0px rgba(0, 0, 0, 0.17);
-    width: auto;
-    height: auto;
+    width: 25%;
+    height: 650;
     margin: 1rem;
     padding: 1rem;
     list-style: none;
     flex-shrink: 1;
     flex-grow: 1;
-    width: auto;
 }
 
 .img {

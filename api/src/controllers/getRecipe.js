@@ -27,7 +27,7 @@ const getRecipeController = async function (req, res, next) {
         img: rDB.img ? rDB.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
         summary: rDB.summary,
         healthScore: rDB.healthScore,
-        intructions: rDB.instructions,
+        instructions: rDB.instructions,
         diets: rDB.diets.map((element) => {
           return element.name;
         }),

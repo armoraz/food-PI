@@ -4,6 +4,7 @@ import { getRecipe } from "../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "./RecipeDetails.module.css";
+import NavBar from "../components/NavBar";
 
 export default function RecipeDetails() {
   const { isLoading, errorOnLoad } = useSelector((state) => state.ui);
@@ -23,6 +24,7 @@ export default function RecipeDetails() {
 
   return (
     <div>
+      <NavBar />
       {!isLoading && (
         <div>
           <img src={img} alt=""></img>

@@ -1,3 +1,17 @@
 .header {
-    border: solid 10px green
+
+}
+
+select {
+    appearance: none;
+    background-color: #e8e8e8;
+    border: none;
+    margin: 20px 20px 0px 20px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    border-radius: 0.5em;
+    z-index: 1;
 }

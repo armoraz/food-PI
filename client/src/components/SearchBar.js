@@ -8,15 +8,15 @@ export default function SearchBar() {
   const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");
-  // const getData = useHTTP(
-  //   { url: `http://localhost:3001/recipes${location.search}` },
-  //   searchRecipes
-  // );
+  const getData = useHTTP(
+    { url: `http://localhost:3001/recipes${location.search}` },
+    searchRecipes
+  );
 
-  // //useLocation && useEffect
-  // useEffect(() => {
-  //   getData();
-  // }, [location.search, getData]);
+  //useLocation && useEffect
+  useEffect(() => {
+    getData();
+  }, [location.search, getData]);
 
   function searchHandler(e) {
     e.preventDefault();

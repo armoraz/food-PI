@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { sortByName, sortByScore } from "../actions";
 import { useSortFilterVerification } from "../hooks";
-import styles from "./Sort.module.css";
+import { Active } from "./NavBar.module.css";
 
 export default function Sort() {
   const { byName, byScore, selected } = useSelector((state) => state.ui.sort);
@@ -87,7 +87,12 @@ export default function Sort() {
 
   return (
     <div>
-      <select className={styles.menu} value={selected} onChange={sortHandler}>
+      <select
+        className={`${byName.status || byScore.status ? Active : ""}`}
+        defaultValue={byName.default}
+        value={selected}
+        onChange={sortHandler}
+      >
         {sortOptions.map((option) => {
           return (
             <option

@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import styles from "./Modal.module.css";
 import { setModal } from "../actions";
-import Form from "./Form";
 
 export default function Modal({ title, content, darkBG }) {
   const dispatch = useDispatch();

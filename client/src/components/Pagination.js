@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 import { useState } from "react";
+const { actualPage, nonActualPage } = styles;
 
-const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
-  const [classColor, setClassColor] = useState(styles.nonActualPage);
+const Pagination = ({ props }) => {
+  const [classColor, setClassColor] = useState();
   const pageNumbers = [];
+  const { itemsPerPage, totalItems, paginate, currentPage } = props;
 
   for (let i = 0; i < Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i + 1);
@@ -24,22 +26,25 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
     }
   }
   function pageHandler(e, number) {
-    if (e.tar) e.target.className = `${styles.actualPage}`;
-    setClassColor(styles.nonActualPage);
     paginate(number);
+    //USar CurrentO
   }
 
   return (
     <div>
       <ul>
         <span>
-          <button onClick={prevButtonHandler}>ANTERIOR</button>
+          <button className={nonActualPage} onClick={prevButtonHandler}>
+            ANTERIOR
+          </button>
         </span>
         {pageNumbers.map((number) => (
           <span key={number}>
             <button
               id={number}
-              className={classColor}
+              className={`${
+                currentPage === number ? actualPage : nonActualPage
+              }`}
               onClick={(e) => pageHandler(e, number)}
             >
               {number}
@@ -47,7 +52,9 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
           </span>
         ))}
         <span>
-          <button onClick={nextButtonHandler}>SIGUIENTE</button>
+          <button className={nonActualPage} onClick={nextButtonHandler}>
+            SIGUIENTE
+          </button>
         </span>
       </ul>
     </div>

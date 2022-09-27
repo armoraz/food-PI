@@ -1,5 +1,28 @@
 .nav {
-    background-color: blue;
     position: sticky;
-    top: 0px
+    top: 0px;
+    background-color:#fafafa;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.add {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+}
+
+.Active {
+        background-color: #06b5be;
+}
+
+.filter {
+    display: flex;
+    justify-content: center
+
 }

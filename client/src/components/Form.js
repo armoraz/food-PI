@@ -75,7 +75,7 @@ export default function Form() {
       });
       const response = await res.json();
 
-      if (res.status === 200) {
+      if (response.status === 200) {
         resetSummary();
         resetName();
         resetHealthScore();
@@ -90,7 +90,7 @@ export default function Form() {
       <form className={styles.form} onSubmit={submitHandler}>
         <div className={styles.container}>
           <label className={styles.label} htmlFor="name">
-            Name:{" "}
+            Name:
           </label>
           <input
             type="text"
@@ -103,7 +103,7 @@ export default function Form() {
           />
           {nameHasError && <p>Se necesita un nombre</p>}
           <label className={styles.label} htmlFor="summary">
-            Descripcion:{" "}
+            Descripcion:
           </label>
           <textarea
             type="text"
@@ -118,7 +118,7 @@ export default function Form() {
           />
           {summaryHasError && <p>Se necesita una descripcion</p>}
           <label className={styles.label} htmlFor="healthScore">
-            Health Score:{" "}
+            Health Score:
           </label>
           <input
             type="number"
