@@ -2,6 +2,7 @@ import styles from "./Form.module.css";
 import { useInput } from "../hooks";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { setFilteredRecipes } from "../actions";
 
 //Funcion validadora
 const isNotEmpty = (value) => value.trim() !== "";
@@ -9,6 +10,8 @@ const isNotEmpty = (value) => value.trim() !== "";
 export default function Form() {
   const diets = useSelector((state) => state.food.diets);
   const [availableDiets, setAvailableDiets] = useState(diets);
+  const [steps, setSteps] = useState([]);
+  const [step, setStep] = useState("");
   const [selectDiets, setSelectDiets] = useState({
     selectedDiets: [],
     value: "dietas",
@@ -55,9 +58,21 @@ export default function Form() {
     });
   }
 
-  console.log(nameHasError);
-  console.log(summaryHasError);
-  console.log(healthScoreHasError);
+  function stepHandler(e) {
+    setStep(e.target.value);
+  }
+
+  function instructionsHandler() {
+    setSteps([...steps, step]);
+    setStep("");
+  }
+  console.log(steps);
+
+  function stepsHandler(index) {}
+
+  // console.log(nameHasError);
+  // console.log(summaryHasError);
+  // console.log(healthScoreHasError);
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -174,6 +189,32 @@ export default function Form() {
               );
             })}
           </select>
+        </div>
+        <div className={styles.instructionsContainer}>
+          <div className={styles.instructionsContainerHead}>
+            <label className={styles.label} htmlFor="instructions">
+              Instructions:{""}
+            </label>
+            <input
+              placeholder="Some step..."
+              id="instructions"
+              type="text"
+              onChange={stepHandler}
+            ></input>
+            <button onClick={instructionsHandler}> Add Step</button>
+          </div>
+          <div className={styles.listDiets}>
+            <ul className={styles.steps}>
+              {steps.map((s, i) => {
+                return (
+                  <div key={i + 1} className={styles.stepContainer}>
+                    <span>{i + 1}</span>
+                    <li onClick={(e) => stepsHandler(i)}>{s}</li>
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <div className={styles.actionContainer}>

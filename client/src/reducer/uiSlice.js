@@ -6,22 +6,22 @@ const initialState = {
   filter: {
     disabled: true,
     status: false,
-    selected: "filtrar por dieta",
-    default: "filtrar por dieta",
+    selected: "filter by diet",
+    default: "filter by diet",
     filtered: [],
   },
   sort: {
     byName: {
       status: false,
-      default: "ordenar por nombre",
+      default: "sort by name",
       sorted: [],
     },
     byScore: {
       status: false,
-      default: "ordenar por score",
+      default: "sort by score",
       sorted: [],
     },
-    selected: "ordenar por nombre",
+    selected: "sort by name",
   },
 };
 

@@ -89,7 +89,6 @@ export default function Sort() {
     <div className={sortBox}>
       <select
         className={`${byName.status || byScore.status ? Active : ""}`}
-        defaultValue={byName.default}
         value={selected}
         onChange={sortHandler}
       >

@@ -34,12 +34,16 @@ padding: 1%;
 
 label {
     padding: auto;
-    margin: 1%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    display: block;
+    font-size: 20px;
 }
 
 input {
     padding: auto;
     margin-top: auto;
+    height: 25px;
 }
 
 select {
@@ -64,12 +68,51 @@ select {
     align-items: center;
   }
 
-  p {
-    font-weight: bold;
-    color:#f41fbf
-  }
 
   .inputInvalid input {
     border: 1px solid #f41fbf;
     background-color: #fddddd;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none; 
+  }
+
+  .stepContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .instructionsContainer {
+    padding: 0 10% 5% 10%;
+  }
+
+  .instructionsContainer button {
+    color: rgb(80, 78, 78);
+    padding: 7px;
+    width: 20%;
+    border-radius: 0.5em;
+    background: #ffffff;
+    border: 1px solid ;
+    outline: 0;
+    margin:5px;
+  }
+
+  .instructionsContainer button:hover {
+    border: 1px solid #f41fbf;
+
+  }
+
+  .instructionsContainerHead {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .instructionsContainerHead input {
+    width: 100%;
   }
