@@ -1,14 +1,139 @@
 p {
     font-size: medium;
+    color: #222;
+    font-weight: 350;
+    font-size: 25px;
+    text-justify: inter-word;
+    text-align: justify;
+
+
+}
+
+.titleContainer {
+    width: 50%;
+    justify-content: center;
+    min-width: 610px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer {
+    width: 50%;
+    justify-content: center;
+    min-width: 610px;
 }
 
 .summaryContainer {
-    width: auto;
-    margin: 100px;
+    width: 50%;
     justify-content: center;
+    color: #222;
+    font-size: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+
 }
+
+.stepsContainer {
+    width: 50%;
+    justify-content: center;
+    color: #222;
+    font-weight: 350;
+    font-size: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+
 
 
 li {
     margin: 20px
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-bottom: solid 1px rgb(228, 219, 219);
+}
+
+.header img {
+    border-radius: 3px;
+    max-height: 100%;
+    max-width: auto;
+}
+
+.header button {
+    color: #06b5be;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 12px 0;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #39dbc2;
+    border-radius: 0;
+    background-position: 100% center;
+    justify-self:center;
+    
+
+}
+
+.header h1 {
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #222;
+    font-weight: 450;
+    margin-bottom: 20px;
+}
+
+#score {
+    font-size: 45px;
+    color: goldenrod
+}
+
+#bScore {
+    font-size: 20px;
+}
+
+.listDiets {
+    margin-top: 15px;
+    height: 5%;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .itemListDiets {
+    text-transform: uppercase;
+    padding: 1%;
+      width: max-content;
+      border-radius: 16px;
+      background-color: aquamarine;
+      margin: 1% 1%;
+      font-size: 14px;
+      display: inline-block;
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.container h2 {
+    font-weight: 400;
+    font-size: 48px;
 }

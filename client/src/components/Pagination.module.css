@@ -1,9 +1,20 @@
 .pagination {
-    position: sticky;
-    top: 0px
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    text-align: center;
+    margin: 2px;
+    padding: 0;
+    width: 50px;
+}
+.list {
+    padding: 0;
 }
 
 .actualPage {
+    height: 45px;
     color: #090909;
     padding: 0.7em 1.7em;
     font-size: 18px;
@@ -13,9 +24,16 @@
     transition: all .3s;
 }
 
+.nonActualPage#prev,.nonActualPage#next{
+    font-size: 19px;
+    width: 50px;
+}
 
 
 .nonActualPage {
+    text-align: center;
+    width: 150px;
+    height: 45px;
     color: #090909;
     padding: 0.7em 1.7em;
     font-size: 18px;
@@ -27,5 +45,5 @@
 
   button:hover {
     cursor: pointer;
-    border: 1px solid white;
+    border: 2px solid white;
    }

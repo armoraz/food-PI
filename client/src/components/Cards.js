@@ -9,13 +9,11 @@ function Cards({ currentRecipes }) {
   return (
     <div className={styles.container}>
       {!isLoading && (
-        <div>
-          <ul className={styles.list}>
-            {currentRecipes.map((e, index) => {
-              return <Card item={e} key={index} />;
-            })}
-          </ul>
-        </div>
+        <ul className={styles.list}>
+          {currentRecipes.map((e, index) => {
+            return <Card item={e} key={index} />;
+          })}
+        </ul>
       )}
 
       {isLoading && <p>...Loading</p>}

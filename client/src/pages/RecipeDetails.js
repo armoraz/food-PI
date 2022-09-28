@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 import styles from "./RecipeDetails.module.css";
 import NavBar from "../components/NavBar";
 
+let icon =
+  "https://img.icons8.com/external-flaticons-flat-flat-icons/45/000000/external-nutrition-dieting-flaticons-flat-flat-icons.png";
+
 export default function RecipeDetails() {
   const { isLoading, errorOnLoad } = useSelector((state) => state.ui);
   const { name, img, healthScore, diets, summary, instructions } = useSelector(
@@ -23,27 +26,50 @@ export default function RecipeDetails() {
   useEffect(() => getData(), [id, getData]);
 
   return (
-    <div>
+    <div className={styles.info}>
       <NavBar />
       {!isLoading && (
         <div>
-          <img src={img} alt=""></img>
-          <h1>{name}</h1>
-          <span>{healthScore}</span>
-          <div>
-            {diets.map((e, i) => {
-              return <span key={i}>{e}</span>;
-            })}
+          <div className={styles.header}>
+            <div className={styles.imgContainer}>
+              <img src={img} alt=""></img>
+            </div>
+            <div className={styles.titleContainer}>
+              <button>Back to Home</button>
+              <h1>{name}</h1>
+              <div>
+                <span>
+                  <img src={icon} alt="health score symbol"></img>
+                </span>
+                <span id={styles.score}>{healthScore}</span>
+                <span id={styles.bScore}>/100</span>
+              </div>
+              <div className={styles.listDiets}>
+                {diets.map((e, i) => {
+                  return (
+                    <span className={styles.itemListDiets} key={i}>
+                      {e}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <h2>Summary</h2>
-          <p className={styles.summaryContainer}>{summary}</p>
-          <div>
-            <h2>Steps</h2>
-            <ol>
-              {instructions.map((e) => {
-                return <li>{e.step}</li>;
-              })}
-            </ol>
+          <div className={styles.container}>
+            <div className={styles.summaryContainer}>
+              <h2>Summary</h2>
+              <p>{summary}</p>
+            </div>
+            <div className={styles.stepsContainer}>
+              <h2>Steps</h2>
+              <ol>
+                {instructions.length > 0
+                  ? instructions.map((e) => {
+                      return <li>{e.step}</li>;
+                    })
+                  : "No instructions avaible for this recipe"}
+              </ol>
+            </div>
           </div>
         </div>
       )}

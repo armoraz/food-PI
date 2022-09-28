@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDiets, setFilteredRecipes, sortReset } from "../actions/index";
 import { useHTTP } from "../hooks";
-import { Active } from "./NavBar.module.css";
+import { Active, filterBox } from "./NavBar.module.css";
 
-function Filter() {
+function Filter({ resetPage }) {
   const { diets, recipes } = useSelector((state) => state.food);
   const { filter } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function Filter() {
 
   function filterByDietHandler(e) {
     dispatch(sortReset());
+    resetPage();
     let selected = e.target.value;
 
     //Aplica filtrado
@@ -33,7 +34,7 @@ function Filter() {
   }
 
   return (
-    <div>
+    <div className={filterBox}>
       <select
         className={`${filter.status ? Active : ""}`}
         value={filter.selected}
@@ -41,7 +42,7 @@ function Filter() {
         onChange={filterByDietHandler}
       >
         <option value={filter.default} disabled>
-          --Filtrar por genero--
+          --Filter by diet--
         </option>
         {diets.map((option, i) => {
           return (

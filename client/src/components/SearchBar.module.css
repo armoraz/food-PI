@@ -7,7 +7,7 @@
     font-size: 14px;
     line-height: 18px;
     
-    color: #39dbc2;
+    color: #06b5be;
     background-color: transparent;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -29,6 +29,8 @@
             border-bottom: 1px solid #39dbc2;
             border-radius: 0;
             background-position: 100% center;
+            font-size: 45px;
+            font-weight: 700;
         }
 .div {
     margin: auto;

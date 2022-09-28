@@ -24,13 +24,20 @@ export default function Home() {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
+
+  //Reset page
+  const resetPage = () => {
+    setCurrentPage(1);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
   return (
-    <div>
+    <div className={styles.home}>
       <NavBar
         itemsPerPage={recipesPerPage}
         paginate={paginate}
         totalItems={ListOfRecipes.length}
         currentPage={currentPage}
+        resetPage={resetPage}
       />
       <Cards currentRecipes={currentRecipes} />
     </div>

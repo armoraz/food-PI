@@ -1,21 +1,71 @@
 .li {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: -2px 3px 8px 0px rgba(0, 0, 0, 0.17);
-    width: 25%;
-    height: 650;
-    margin: 1rem;
-    padding: 1rem;
+    width: 20%;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
     list-style: none;
-    flex-shrink: 1;
-    flex-grow: 1;
+}
+
+
+.container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgContainer {
+    height: 70%;
+    margin-bottom: 5px;
 }
 
 .img {
-    margin:1rem;
-    padding: auto;
-    margin: 1rem;
-    width: 20rem;
-    height: auto;
+    max-width: 100%;
+    border-radius: 3px;
 
+
+}
+
+#score {
+    margin-top: 5px;
+    font-size: 25px;
+    color: goldenrod
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    color: #222;
+}
+
+.listDiets {
+    margin-top: 15px;
+    height: 100%;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .itemListDiets {
+    text-transform: uppercase;
+    padding: 1%;
+      width: max-content;
+      border-radius: 16px;
+      background-color: rgba(197, 197, 197, 0.158);
+      margin: 1% 1%;
+      font-size: 11px;
+      display: inline-block;
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

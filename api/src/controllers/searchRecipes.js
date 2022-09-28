@@ -42,7 +42,9 @@ const searchRecipeController = async function (req, res) {
       return {
         id: r.id,
         name: r.name,
-        img: r.img ? r.img : "https://i.redd.it/t9y87m5f0pz41.jpg",
+        img: r.img
+          ? r.img
+          : "https://images.unsplash.com/photo-1623691752472-a6d33855e5de",
         healthScore: r.healthScore,
         diets: r.diets.map((element) => {
           return element.name;

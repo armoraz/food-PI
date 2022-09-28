@@ -1,18 +1,15 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 import { useState } from "react";
-const { actualPage, nonActualPage } = styles;
+const { actualPage, nonActualPage, list, pagination, next, prev } = styles;
 
 const Pagination = ({ props }) => {
-  const [classColor, setClassColor] = useState();
   const pageNumbers = [];
   const { itemsPerPage, totalItems, paginate, currentPage } = props;
 
   for (let i = 0; i < Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i + 1);
   }
-
-  const classColors = [];
 
   function prevButtonHandler() {
     if (currentPage > 1) {
@@ -31,10 +28,14 @@ const Pagination = ({ props }) => {
   }
 
   return (
-    <div>
-      <ul>
+    <div className={pagination}>
+      <ul className={list}>
         <span>
-          <button className={nonActualPage} onClick={prevButtonHandler}>
+          <button
+            id={prev}
+            className={nonActualPage}
+            onClick={prevButtonHandler}
+          >
             {"<"}
           </button>
         </span>
@@ -52,7 +53,11 @@ const Pagination = ({ props }) => {
           </span>
         ))}
         <span>
-          <button className={nonActualPage} onClick={nextButtonHandler}>
+          <button
+            id={next}
+            className={nonActualPage}
+            onClick={nextButtonHandler}
+          >
             {">"}
           </button>
         </span>

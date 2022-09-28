@@ -26,7 +26,7 @@ const getRecipeController = async function (req, res, next) {
         name: rDB.name,
         img: rDB.img
           ? rDB.img
-          : "https://images.unsplash.com/photo-1605879015725-7e09cd0abc87",
+          : "https://images.unsplash.com/photo-1623691752472-a6d33855e5de",
         summary: rDB.summary,
         healthScore: rDB.healthScore,
         instructions: rDB.instructions,
@@ -54,7 +54,7 @@ const getRecipeController = async function (req, res, next) {
         diets: response.data.diets,
         instructions: response.data.analyzedInstructions.length
           ? response.data.analyzedInstructions[0].steps
-          : ["No instructions available"],
+          : [],
       };
 
       recipe.push(recipeAPI);

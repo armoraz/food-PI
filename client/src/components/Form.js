@@ -39,7 +39,9 @@ export default function Form() {
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
-  if (nameIsValid && healthScoreIsValid && summaryIsValid) {
+  let dietsIsValid = false;
+  if (selectDiets.length >= 1) dietsIsValid = true;
+  if (nameIsValid && healthScoreIsValid && summaryIsValid && dietsIsValid) {
     formIsValid = true;
   }
 
@@ -53,10 +55,16 @@ export default function Form() {
     });
   }
 
+  console.log(nameHasError);
+  console.log(summaryHasError);
+  console.log(healthScoreHasError);
+
   async function submitHandler(e) {
     e.preventDefault();
 
-    if (!formIsValid) return;
+    if (!formIsValid) {
+      return;
+    }
 
     const responseBody = {
       name: nameValue,
@@ -169,7 +177,7 @@ export default function Form() {
         </div>
 
         <div className={styles.actionContainer}>
-          <button className={styles.add} type="submit">
+          <button disabled={!formIsValid} className={styles.add} type="submit">
             Agregar
           </button>
         </div>

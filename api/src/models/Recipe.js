@@ -27,6 +27,11 @@ module.exports = (sequelize) => {
           max: 100,
         },
       },
+      img: {
+        type: DataTypes.STRING,
+        defaultValue:
+          "https://images.unsplash.com/photo-1556761223-4c4282c73f77",
+      },
       instructions: {
         type: DataTypes.ARRAY(DataTypes.TEXT),
         defaultValue: [],

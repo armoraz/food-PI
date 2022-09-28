@@ -13,6 +13,9 @@ export default function NavBar(props) {
   const { modalIsOpen } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
 
+  //resetPage
+  const { resetPage } = props;
+
   return (
     <div className={styles.nav}>
       <div className={styles.titleContainer}>
@@ -26,13 +29,13 @@ export default function NavBar(props) {
         className={styles.add}
         onClick={(e) => dispatch(setModal("OPEN"))}
       >
-        AGREGAR RECETA
+        ADD NEW RECIPE
       </button>
       {modalIsOpen && (
         <Modal darkBG={true} title={"AGREGANDO RECETA"} content={<Form />} />
       )}
       <div className={styles.filter}>
-        <Filter />
+        <Filter resetPage={resetPage} />
         <Sort />
       </div>
       <Pagination props={props} />

@@ -1,16 +1,14 @@
 import { useState } from "react";
 
-export default function useInput(validateValue, array) {
+export default function useInput(validateValue) {
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
 
   const valueIsValid = validateValue(enteredValue);
+  console.log(valueIsValid);
   const hasError = !valueIsValid && isTouched;
 
   const valueChangeHandler = (event) => {
-    if (array) {
-      enteredValue.includes(event.target.value);
-    }
     setEnteredValue(event.target.value);
   };
 
