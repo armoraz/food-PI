@@ -53,6 +53,12 @@
     cursor: pointer;
 }
 
+.add button:disabled {
+    cursor: not-allowed;
+}
+
+
+
 .Active {
         background-color: #06b5be;
 }

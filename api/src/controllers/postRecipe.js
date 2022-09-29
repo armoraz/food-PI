@@ -10,7 +10,7 @@ function isStringOk(data) {
 function isArrayOk(data) {
   if (typeof data !== "object")
     throw new Error(`INPUT_ERROR: ${data} is not an Array`);
-  if (data.length < 1) throw new Error(`INPUT_ERROR: ${data} cannot be empty`);
+  //Se aceptan instrucciones vacias
 }
 
 const postRecipeController = async function (req, res, next) {

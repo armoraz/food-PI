@@ -1,22 +1,26 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { searchRecipes } from "../actions";
+import { searchRecipes, setDiets } from "../actions";
 import { useHTTP } from "../hooks";
 import style from "./SearchBar.module.css";
+import { useSelector } from "react-redux";
 
 export default function SearchBar() {
+  const { isDietLoaded, isDataLoaded } = useSelector((state) => state.ui);
   const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");
-  const getData = useHTTP(
+  const getData = useHTTP({ url: `http://localhost:3001/diets` }, setDiets);
+  const searchData = useHTTP(
     { url: `http://localhost:3001/recipes${location.search}` },
     searchRecipes
   );
 
   //useLocation && useEffect
   useEffect(() => {
-    getData();
-  }, [location.search, getData]);
+    if (location.search) searchData();
+    if (!isDataLoaded || !isDietLoaded) getData();
+  }, [location.search, getData, isDataLoaded, isDietLoaded]);
 
   function searchHandler(e) {
     e.preventDefault();

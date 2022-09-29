@@ -36,7 +36,8 @@ const postDietsController = async function (req, res, next) {
 
     res.json(recipes);
   } catch (e) {
-    res.json("error at bulk posting diets: " + e.message);
+    e.message = "error at bulk posting diets: " + e.message;
+    next(e);
   }
 };
 

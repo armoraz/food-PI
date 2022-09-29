@@ -9,15 +9,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function App() {
-  let preloaded = useSelector((state) => state.ui.dataPreloaded);
-  // const getData = useHTTP({ url: `http://localhost:3001/recipes` }, getRecipes);
-
-  // useEffect(() => {
-  //   if (!preloaded) {
-  //     getData();
-  //   }
-  // }, [getData, preloaded]);
-
   return (
     <div className="App">
       <Switch>

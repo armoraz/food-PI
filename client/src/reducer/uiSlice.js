@@ -1,5 +1,6 @@
 const initialState = {
-  dataPreloaded: false,
+  isDataLoaded: false,
+  isDietLoaded: false,
   modalIsOpen: false,
   isLoading: false,
   errorOnLoad: null,
@@ -27,8 +28,8 @@ const initialState = {
 
 export default function uiReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_RECIPES":
-      return { ...state, dataPreloaded: true };
+    case "SEARCH_RECIPES":
+      return { ...state, isDataLoaded: false };
     case "ERROR_STATUS":
       return { ...state, errorOnLoad: action.payload };
     case "LOADING_STATUS":
@@ -51,6 +52,8 @@ export default function uiReducer(state = initialState, action) {
     case "SET_DIETS":
       return {
         ...state,
+        isDietLoaded: true,
+        isDataLoaded: true,
         filter: {
           ...state.filter,
           disabled: false,

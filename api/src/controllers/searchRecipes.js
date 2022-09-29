@@ -4,7 +4,7 @@ const axios = require("axios");
 const { Recipe, Diet } = require("../db");
 const { Op } = require("sequelize");
 
-const searchRecipeController = async function (req, res) {
+const searchRecipeController = async function (req, res, next) {
   const { name } = req.query;
 
   try {
@@ -55,7 +55,7 @@ const searchRecipeController = async function (req, res) {
     const searchedRecipes = [...searchedRecipesDB, ...searchedRecipesAPI];
     res.json(searchedRecipes);
   } catch (e) {
-    res.json("error at searching recipes: " + e.message);
+    (e.message = "error at searching recipes: " + e.message), next(e);
   }
 };
 

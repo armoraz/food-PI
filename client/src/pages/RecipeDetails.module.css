@@ -24,6 +24,7 @@ p {
     width: 50%;
     justify-content: center;
     min-width: 610px;
+    height: 100%;
 }
 
 .summaryContainer {
@@ -54,6 +55,7 @@ li {
 }
 
 .header {
+    height: 500px;
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
@@ -68,7 +70,8 @@ li {
 .header img {
     border-radius: 3px;
     max-height: 100%;
-    max-width: auto;
+    max-width: 100%;
+    object-fit:scale-down;
 }
 
 .header button {
@@ -85,6 +88,10 @@ li {
     justify-self:center;
     
 
+}
+
+.header button:hover {
+cursor:pointer
 }
 
 .header h1 {

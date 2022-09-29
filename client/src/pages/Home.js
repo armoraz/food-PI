@@ -1,10 +1,14 @@
 import styles from "./Home.module.css";
 import Cards from "../components/Cards";
 import NavBar from "../components/NavBar";
+import Form from "../components/Form";
+import Modal from "../components/Modal";
 import { useState } from "react";
 import { useSortFilterVerification } from "../hooks";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const { modalIsOpen } = useSelector((state) => state.ui);
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
@@ -39,6 +43,9 @@ export default function Home() {
         currentPage={currentPage}
         resetPage={resetPage}
       />
+      {modalIsOpen && (
+        <Modal darkBG={true} title={"CREATING RECIPE"} content={<Form />} />
+      )}
       <Cards currentRecipes={currentRecipes} />
     </div>
   );

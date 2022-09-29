@@ -8,17 +8,10 @@ function Filter({ resetPage }) {
   const { diets, recipes } = useSelector((state) => state.food);
   const { filter } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
-  const getDiets = useHTTP(
-    {
-      url: `http://localhost:3001/diets`,
-    },
-    setDiets
-  );
 
-  useEffect(() => getDiets(), [getDiets]);
-
-  if (!diets || diets.includes("No diets found")) {
-  }
+  const listDiets = diets.map((element) => {
+    return element.name;
+  });
 
   function filterByDietHandler(e) {
     dispatch(sortReset());
@@ -27,7 +20,7 @@ function Filter({ resetPage }) {
 
     //Aplica filtrado
     const filteredRecipes = recipes.filter((e) => {
-      return e.diets.includes(selected);
+      return e.listDiets.includes(selected);
     });
 
     dispatch(setFilteredRecipes(filteredRecipes, selected));
@@ -44,13 +37,14 @@ function Filter({ resetPage }) {
         <option value={filter.default} disabled>
           --Filter by diet--
         </option>
-        {diets.map((option, i) => {
-          return (
-            <option key={i} value={option}>
-              {option.toUpperCase()}
-            </option>
-          );
-        })}
+        {listDiets.length > 0 &&
+          listDiets.map((option, i) => {
+            return (
+              <option key={i} value={option}>
+                {option.toUpperCase()}
+              </option>
+            );
+          })}
       </select>
     </div>
   );

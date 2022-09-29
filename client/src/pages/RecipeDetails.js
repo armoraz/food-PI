@@ -1,5 +1,5 @@
 import { useHTTP } from "../hooks";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getRecipe } from "../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -14,6 +14,7 @@ export default function RecipeDetails() {
   const { name, img, healthScore, diets, summary, instructions } = useSelector(
     (state) => state.food.recipe
   );
+  const history = useHistory();
   const { id } = useParams();
   const getData = useHTTP(
     {
@@ -35,7 +36,9 @@ export default function RecipeDetails() {
               <img src={img} alt=""></img>
             </div>
             <div className={styles.titleContainer}>
-              <button>Back to Home</button>
+              <button onClick={(e) => history.push("/recipes")}>
+                Back to Home
+              </button>
               <h1>{name}</h1>
               <div>
                 <span>
@@ -64,8 +67,8 @@ export default function RecipeDetails() {
               <h2>Steps</h2>
               <ol>
                 {instructions.length > 0
-                  ? instructions.map((e) => {
-                      return <li>{e.step}</li>;
+                  ? instructions.map((e, index) => {
+                      return <li key={index}>{e.step}</li>;
                     })
                   : "No instructions avaible for this recipe"}
               </ol>

@@ -14,7 +14,7 @@ padding: 1%;
   border-radius: 16px;
   background-color: aquamarine;
   margin: 1% 1%;
-  font-size: small;
+  font-size: medium;
   display: inline-block;
   flex-shrink: 1;
   flex-grow: 1;
@@ -57,36 +57,75 @@ select {
   padding: 0.7em 1.7em;
   font-size: 18px;
   border-radius: 0.5em;
-  background: #f41fbf;
-  border: 1px solid #e8e8e8;
-  transition: all .3s;
+  background: #b92275;
+  border: 1px solid transparent;
+  outline: 0;
+  margin:5px;
   }
 
-  .actionsContainer {
+  .add:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+ 
+.addDisabled {
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  outline: 0;
+  margin:5px;
+  }
+
+.addDisabled:hover {
+    border: 1px solid #999999;
+    cursor: not-allowed;
+}
+  
+.actionsContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
 
 
-  .inputInvalid input {
+.inputInvalid input {
     border: 1px solid #f41fbf;
     background-color: #fddddd;
-  }
+}
 
-  .steps {
+.steps {
     display: flex;
     flex-direction: column;
     list-style-type: none; 
-  }
+    padding: 0px;
+}
 
-  .stepContainer {
+#removeStep {
+  font-weight: 500;
+  background-color: transparent;
+  height: 25px;
+  width: 70px;
+  border-radius: 20px;
+  padding: 0px;
+  border: 1px solid #f41fbf
+}
+
+#removeStep:hover {
+  cursor: pointer;
+}
+
+.stepContainer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    height: 30px;
   }
 
   .instructionsContainer {
-    padding: 0 10% 5% 10%;
+
   }
 
   .instructionsContainer button {
@@ -115,4 +154,15 @@ select {
 
   .instructionsContainerHead input {
     width: 100%;
+  }
+
+  .form p {
+    color:#f41fbf
+  }
+
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    margin: 1px;
+    padding: 0px;
   }

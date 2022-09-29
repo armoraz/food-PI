@@ -5,7 +5,6 @@ export default function useInput(validateValue) {
   const [isTouched, setIsTouched] = useState(false);
 
   const valueIsValid = validateValue(enteredValue);
-  console.log(valueIsValid);
   const hasError = !valueIsValid && isTouched;
 
   const valueChangeHandler = (event) => {
