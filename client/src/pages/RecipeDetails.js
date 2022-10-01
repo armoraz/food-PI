@@ -1,5 +1,5 @@
 import { useHTTP } from "../hooks";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { getRecipe } from "../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -36,9 +36,9 @@ export default function RecipeDetails() {
               <img src={img} alt=""></img>
             </div>
             <div className={styles.titleContainer}>
-              <button onClick={(e) => history.push("/recipes")}>
-                Back to Home
-              </button>
+              <Link to={{ pathname: "/recipes", state: "details" }}>
+                <button type="button">Back to Home</button>
+              </Link>
               <h1>{name}</h1>
               <div>
                 <span>

@@ -20,7 +20,7 @@ function Filter({ resetPage }) {
 
     //Aplica filtrado
     const filteredRecipes = recipes.filter((e) => {
-      return e.listDiets.includes(selected);
+      return e.diets.includes(selected);
     });
 
     dispatch(setFilteredRecipes(filteredRecipes, selected));

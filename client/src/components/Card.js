@@ -9,7 +9,7 @@ export default function Card({ item }) {
   return (
     <li className={styles.li}>
       <div className={styles.container}>
-        <Link to={`/recipes/${id}`}>
+        <Link to={{ pathname: `/recipes/${id}`, state: "details" }}>
           <div className={styles.imgContainer}>
             <img className={styles.img} src={img} alt=""></img>
           </div>

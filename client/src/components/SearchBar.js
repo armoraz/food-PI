@@ -6,7 +6,9 @@ import style from "./SearchBar.module.css";
 import { useSelector } from "react-redux";
 
 export default function SearchBar() {
-  const { isDietLoaded, isDataLoaded } = useSelector((state) => state.ui);
+  const { isDietLoaded, isDataLoaded, isSearched } = useSelector(
+    (state) => state.ui
+  );
   const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");
@@ -16,12 +18,16 @@ export default function SearchBar() {
     searchRecipes
   );
 
+  //ACA VA EL CODIGO PARA EVITAR REQUEST INNECESARIO
+
   //useLocation && useEffect
   useEffect(() => {
     if (location.search) searchData();
-    if (!isDataLoaded || !isDietLoaded) getData();
-  }, [location.search, getData, isDataLoaded, isDietLoaded]);
+    else if (location.state !== "details") getData();
+  }, [location.search, getData, searchData, location.state]);
+  // if ((!isDataLoaded || !isDietLoaded) && !isSearched)
 
+  console.log(location.state);
   function searchHandler(e) {
     e.preventDefault();
     if (input !== "") {

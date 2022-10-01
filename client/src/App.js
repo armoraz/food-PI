@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function App() {
+  window.history.replaceState({}, document.title);
+
   return (
     <div className="App">
       <Switch>
