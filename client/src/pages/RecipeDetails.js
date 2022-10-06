@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "./RecipeDetails.module.css";
 import NavBar from "../components/NavBar";
+import { ColorRing } from "react-loader-spinner";
 
 let icon =
   "https://img.icons8.com/external-flaticons-flat-flat-icons/45/000000/external-nutrition-dieting-flaticons-flat-flat-icons.png";
@@ -76,7 +77,17 @@ export default function RecipeDetails() {
           </div>
         </div>
       )}
-      {isLoading && <p>...Loading</p>}
+      {isLoading && (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      )}
       {!isLoading && errorOnLoad && <p>{errorOnLoad}</p>}
     </div>
   );
