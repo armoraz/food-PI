@@ -3,7 +3,7 @@ import { useInput } from "../hooks";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { setFilteredRecipes } from "../actions";
-const { API_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 
 //Funcion validadora
 const isNotEmpty = (value) => value.trim() !== "";
@@ -129,7 +129,7 @@ export default function Form() {
       instructions: steps,
     };
     try {
-      const res = await fetch(`${API_URL}/recipes`, {
+      const res = await fetch(`${REACT_APP_API_URL}/recipes`, {
         method: "POST",
         body: JSON.stringify(responseBody),
         headers: {
