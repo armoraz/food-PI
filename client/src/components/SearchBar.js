@@ -10,6 +10,7 @@ export default function SearchBar() {
   const { isDietLoaded, isDataLoaded, isSearched } = useSelector(
     (state) => state.ui
   );
+
   const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");

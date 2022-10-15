@@ -11,6 +11,7 @@ export default function useHTTP(requestConfig, action) {
 
       try {
         //Request
+
         const res = await fetch(requestConfig.url, {
           mode: "cors",
         });
