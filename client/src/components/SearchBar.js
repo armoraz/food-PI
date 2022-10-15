@@ -4,6 +4,7 @@ import { searchRecipes, setDiets } from "../actions";
 import { useHTTP } from "../hooks";
 import style from "./SearchBar.module.css";
 import { useSelector } from "react-redux";
+const { API_URL } = process.env;
 
 export default function SearchBar() {
   const { isDietLoaded, isDataLoaded, isSearched } = useSelector(
@@ -12,9 +13,9 @@ export default function SearchBar() {
   const location = useLocation();
   const history = useHistory();
   const [input, setInput] = useState("");
-  const getData = useHTTP({ url: `http://localhost:3001/diets` }, setDiets);
+  const getData = useHTTP({ url: `${API_URL}/diets` }, setDiets);
   const searchData = useHTTP(
-    { url: `http://localhost:3001/recipes${location.search}` },
+    { url: `${API_URL}/recipes${location.search}` },
     searchRecipes
   );
 
