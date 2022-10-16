@@ -19,7 +19,7 @@ export default function RecipeDetails() {
   const { id } = useParams();
   const getData = useHTTP(
     {
-      url: `http://localhost:3001/recipes/${id}`,
+      url: `${process.env.REACT_APP_API_URL}/recipes/${id}`,
     },
     getRecipe
   );
